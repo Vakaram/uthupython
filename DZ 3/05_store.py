@@ -46,22 +46,6 @@ store = {
 #         подсчет стоимости товара
 #     вывод на консоль количества и стоимости товара на складе
 
-# TODO здесь ваш код
-# a,b = 1,1
-# for tovar in goods :
-#     kod_tovara = goods[tovar]
-#     # print('kod tovara = ' + kod_tovara + ' название товара = ' + tovar)
-#     # print(' Я получил вот такой список  = ' + str(store[goods[tovar]]))
-#     for spisok_tovar in store[goods[tovar]]:
-#         a,b = spisok_tovar.values()
-#         # print(spisok_tovar.values())
-#         print (a*b)
-
-        # print(spisok_tovar.keys())
-        # for z in spisok_tovar.keys():
-        #     print(spisok_tovar.get(z))
-
-
 # TODO Рассчитать на какую сумму лежит каждого товара на складе.
 # Формат строки вывода: "<товар> - <кол-во> шт, стоимость <общая стоимость> руб"
 a,b = 0,0
