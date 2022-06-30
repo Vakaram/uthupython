@@ -1,3 +1,3 @@
-# -*- coding: utf-8 -*-
+        # -*- coding: utf-8 -*-
 
 folks = ["Яна", "Алёна", ]

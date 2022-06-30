@@ -6,7 +6,19 @@
 # https://docs.python.org/3/library/stdtypes.html#str.join
 
 # TODO здесь ваш код
+# from pprint import pprint
+# from district.central_street.house1.room1 import folks as ch1r1
+# from district.central_street.house1.room2 import folks as ch1r2
+# from district.central_street.house2.room1 import folks as ch2r1
+# from district.central_street.house2.room2 import folks as ch2r2
+# from district.soviet_street.house1.room1 import folks as sh1r1
+# from district.soviet_street.house1.room2 import folks as sh1r2
+# from district.soviet_street.house2.room1 import folks as sh2r1
+# from district.soviet_street.house2.room2 import folks as sh2r2
+#
+# peiple = [*ch1r1,*ch1r2,*ch2r1,*ch2r2,*sh1r1,*sh1r2,*sh2r1,*sh2r2]
+#
+# pprint(' '.join(peiple))
 
-
-
-
+from test_modul import my_burger as vse
+print(vse)

@@ -16,3 +16,5 @@
 # Если не хватает инградиентов - создать соответствующие функции в модуле my_burger
 
 # TODO здесь ваш код
+from test_modul import my_burger as vse
+print(vse)
