@@ -67,43 +67,61 @@
 # Задача 9
 # Сделайте так, чтобы число секунд отображалось в виде дни:часы:минуты:секунды.
 
-a = 7261
-chas = 0
-minut = 0
-sek = 0
-while a >= 3600:
-    chas += 1
-    a = a - 3600
-    while a >= 60:
-        minut += 1
-        a = a - 60
-        if minut >= 60:
-            minut = minut - 60
-            chas = chas + 1
-    else:
-        sek = a
-#print(chas, minut, sek)
-
-
-
+# a = 7261
+# chas = 0
+# minut = 0
+# sek = 0
+# while a >= 3600:
+#     chas += 1
+#     a = a - 3600
+#     while a >= 60:
+#         minut += 1
+#         a = a - 60
+#         if minut >= 60:
+#             minut = minut - 60
+#             chas = chas + 1
+#     else:
+#         sek = a
+# print(chas, minut, sek)
+#
+# a = 7261
+# chas = 0
+# minut = 0
+# sek = 0
+# while a >= 3600:
+#     chas += 1
+#     a = a - 3600
+#     while a >= 60:
+#         minut += 1
+#         a = a - 60
+#         if minut >= 60:
+#             minut = minut - 60
+#             chas = chas + 1
+#     else:
+#         sek = a
+# print(chas, minut, sek)
 
 
 # Вариант решения
 # Задача 10
 # Вы принимаете от пользователя последовательность чисел, разделённых запятой.
 # Составьте список и кортеж с этими числами.
+# from decorator import append
+#
+# a = input()
+# a = list(a)
+# b = []
+# for i in a:
+#     b = b + append(i)
+# print(b)
 
-
-#a = input()
-#a = a.replace(',','')
-#b = []
-#for i in a:
-   # f = i
-   # b.append(f)
-#print(b)
-
-
-
+# a = input()
+# a = a.replace(',','')
+# b = []
+# for i in a:
+# f = i
+# b.append(f)
+# print(b)
 
 
 #
@@ -111,77 +129,76 @@ while a >= 3600:
 # Задача 11
 # Выведите первый и последний элемент списка.
 #
-#a = ['1', '2', '3', '2', '3', '2', '3', '2', '3', '2', '8']
-#c = a[0]
-#b = a[-1]
-#print(c,b)
+# a = ['1', '2', '3', '2', '3', '2', '3', '2', '3', '2', '8']
+# c = a[0]
+# b = a[-1]
+# print(c,b)
 
 # Вариант решения
 # Задача 12
 # Напишите программу, которая принимает имя файла и выводит его расширение.
 # Если расширение у файла определить невозможно, выбросите исключение.
 # Вариант решения
-#фигня
+# фигня
 
 # Задача 13
 # При заданном целом числе n посчитайте n + nn + nnn.
-#def nnet(nomer_up):
- #   w = nomer_up**2
- #   e = nomer_up**3
- #   return nomer_up + w + e
-#o = 53
-#print(nnet(o))
+# def nnet(nomer_up):
+#   w = nomer_up**2
+#   e = nomer_up**3
+#   return nomer_up + w + e
+# o = 53
+# print(nnet(o))
 
 
 # Вариант решения
 # Задача 1 4
 # Напишите программу, которая выводит чётные числа из заданного списка и останавливается, если встречает число 237.
 
-#a_spis = ['1','2','3','4','5','6','7','8','237','9','10','11','12']
-#a = 0
-#def chetchislo (spis):
+# a_spis = ['1','2','3','4','5','6','7','8','237','9','10','11','12']
+# a = 0
+# def chetchislo (spis):
 #    for i in spis:
- #       i = int(i)
-  #      if i == 237:
-   #        return
-    #    if i % 2 == 0:
-     #       a = i
-      #      print(a)
-#chetchislo(a_spis)
+#       i = int(i)
+#      if i == 237:
+#        return
+#    if i % 2 == 0:
+#       a = i
+#      print(a)
+# chetchislo(a_spis)
 
 # Вариант решения
 # Задача 15
 # Напишите программу, которая принимает два списка и выводит все элементы первого, которых нет во втором.
 
-#a = ['1','2','3','4','5','6','7','8','237','9','10','2222','11','12','13','14','sadf']
-#b = ['1','2','3','4','5','6','7','8','237','9','10','11','12']
-#i = set(a) - set(b)
-#print(i)
+# a = ['1','2','3','4','5','6','7','8','237','9','10','2222','11','12','13','14','sadf']
+# b = ['1','2','3','4','5','6','7','8','237','9','10','11','12']
+# i = set(a) - set(b)
+# print(i)
 
 #
 # Вариант решения
 # Задача 16
 # Выведите список файлов в указанной директории.
-#import os
+# import os
 
 ##dirictori = 'C:\Dowinload'
-#file = os.listdir(dirictori)
-#print(file)
-
+# file = os.listdir(dirictori)
+# print(file)
 
 
 #
 # Вариант решения
 # Задача 17
 # Сложите цифры целого числа.
-#a = 123
-#a = str(a)
-#print(type(a))
-#b = 0
-#for i in a:
- #   i = int(i)
- ##   b += i
-#print(b)
+# a = 123
+# a = str(a)
+# print(type(a))
+# b = 0
+# for i in a:
+#   i = int(i)
+##   b += i
+# print(b)
 
 #
 # Вариант решения
@@ -191,28 +208,28 @@ while a >= 3600:
 # Задача 18
 # Посчитайте, сколько раз символ встречается в строке.
 
-#gde_sthitaem = 'Stttroka'
-#gde_sthitaem = gde_sthitaem.lower()
+# gde_sthitaem = 'Stttroka'
+# gde_sthitaem = gde_sthitaem.lower()
 ##skolko = 0
-#cto_shitaem = 'T'
-#cto_shitaem = cto_shitaem.lower()
-#for i in gde_sthitaem:
-      #  if cto_shitaem == i:
-         #   skolko += 1
-#print(skolko)
+# cto_shitaem = 'T'
+# cto_shitaem = cto_shitaem.lower()
+# for i in gde_sthitaem:
+#  if cto_shitaem == i:
+#   skolko += 1
+# print(skolko)
 #
 # Вариант решения
 # Задача 19
 # Поменяйте значения переменных местами.
-#a = 1
-#b = 2
-#c = 0
-#решение
-#c = a
-#a = b
-#b = c
+# a = 1
+# b = 2
+# c = 0
+# решение
+# c = a
+# a = b
+# b = c
 
-#print('a = ',a , 'b = ', b )
+# print('a = ',a , 'b = ', b )
 
 
 # Вариант решения
@@ -221,33 +238,28 @@ while a >= 3600:
 # Задача 20
 # С помощью анонимной функции извлеките из списка числа, делимые на 15.
 #
+
+# a = [10, 15, 30, 45, 55, 60, 65, 70, 75, 80,150]
+# delitsa_15 = list(filter(lambda  x : (x % 15 == 0),a))
+# print(delitsa_15)
+
+
+#num_list = [45, 55, 60, 37, 100, 105, 220]
+# use anonymous function to filter
+# result = list(filter(lambda x: (x % 15 == 0), a))
+# print("Numbers divisible by 15 are",result)
+
 # Вариант решения
 # Задача 21
 # Нужно проверить, все ли числа в последовательности уникальны.
-#a = 14
-#c = 17
-#print((lambda a , b: a * b)(a, c))
-#print((lambda a , b: a if a > b else b)(123, 442))
-
+# a  = [1,2,3,1,2,3,3,3,3,]
+# if len(a) == len(set(a)):
+#     print('Да список уникален полностью')
+# else:
+#     print('Список не уникален, но покажу уникальные значения = ', list(set(a)))
 
 # Вариант решения
 # Задача 22
-# Напишите программу, которая принимает текст и выводит два слова:
-# наиболее часто встречающееся
-# и самое длинное.
-
-text = 'Шёл снег сильный сильный сильный и падал как пух в однообразную серую площадь'
-thastoe = 0
-dlinnoe = 0
-splituem = 0
-for i in text:
-    splituem = text.split()
-    for one_slovo in splituem:
-        print(one_slovo)
-#дорешать с помощью лен и зунать почему много раз текст вывелся
-print('частое', thastoe)
-print('длинное', dlinnoe)
-print(splituem)
-
-
-
+# Напишите программу, которая принимает текст и выводит два слова: наиболее часто встречающееся и самое длинное.
+## sam_text = 'Зимнее зимнее утро прилетели птицы сели в кормушку и ели ели ели'
+№заипался вернусь позже или сделаю в похожее в других задачах. усталь надо передохнуть.
