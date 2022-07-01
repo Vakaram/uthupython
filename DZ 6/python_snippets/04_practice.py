@@ -22,24 +22,77 @@
 #  ввод вторым игроком хода - позицию и кол-во камней
 #  вывод расположения камней
 
-from nim_engine import put_stones, get_bunches, is_gameover, take_from_bunch
-from termcolor import cprint, colored
+#Здесь пишим игрулю
+
+from igra_python_nim import put_stones,get_bunches,is_gameover,take_from_banch
+from termcolor import cprint,colored
 
 put_stones()
 user_number = 1
 while True:
-    cprint('Текущая позиция', color='green')
-    cprint(get_bunches(), color='green')
+    cprint('Текущая позиция', color= 'green')
+    cprint(get_bunches(), color= 'green')
     user_color = 'blue' if user_number == 1 else 'yellow'
-    cprint('Ход игрока {}'.format(user_number), color=user_color)
-    pos = input(colored('Откуда берем?', color=user_color))
-    qua = input(colored('Сколько берем?', color=user_color))
-    step_successed = take_from_bunch(position=int(pos), quantity=int(qua))
-    if step_successed:
-        user_number = 2 if user_number == 1 else 1
-    else:
-        cprint('Невозможный ход!', color='red')
+    cprint('Ход игрока {}'.format(user_number), color= user_color)
+    pos = input(colored('Откуда берём ? ' , color=user_color))
+    qua = input(colored('Сколько берём ? ', color=user_color))
+    take_from_banch(position=int(pos),quantity=int(qua))
     if is_gameover():
         break
+    user_number = 2 if user_number == 1 else 1
 
-cprint('Выйграл игрок номер {}'.format(user_number), color='red')
+cprint('Выйграл игрок номер ' , user_number, color= 'green')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# from nim_engine import put_stones, get_bunches, is_gameover, take_from_bunch
+# from termcolor import cprint, colored
+#
+# put_stones()
+# user_number = 1
+# while True:
+#     cprint('Текущая позиция', color='green')
+#     cprint(get_bunches(), color='green')
+#     user_color = 'blue' if user_number == 1 else 'yellow'
+#     cprint('Ход игрока {}'.format(user_number), color=user_color)
+#     pos = input(colored('Откуда берем?', color=user_color))
+#     qua = input(colored('Сколько берем?', color=user_color))
+#     step_successed = take_from_bunch(position=int(pos), quantity=int(qua))
+#     if step_successed:
+#         user_number = 2 if user_number == 1 else 1
+#     else:
+#         cprint('Невозможный ход!', color='red')
+#     if is_gameover():
+#         break
+#
+# cprint('Выйграл игрок номер {}'.format(user_number), color='red')

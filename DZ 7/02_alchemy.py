@@ -11,6 +11,10 @@
 #   Воздух + Земля = Пыль
 #   Огонь + Земля = Лава
 
+
+
+
+
 # Сложение элементов реализовывать через __add__
 # Если результат не определен - то возвращать None
 # Вывод элемента на консоль реализовывать через __str__
@@ -19,8 +23,75 @@
 #   print(Water(), '+', Air(), '=', Water() + Air())
 #   print(Fire(), '+', Air(), '=', Fire() + Air())
 
-# TODO здесь ваш код
+# # TODO здесь ваш код
+#
+# class Water:
+#     'Element'
+#
+#     def __init__(self,second = second ):
+#         self.stalo = [water, ]
+#         if second == Air:
+#             self.stalo.append(second)
+#
+# class Water:
+#     'Вода'
+#
+#
+# class Air:
+#     'Воздух'
+#
+#
+# class Storm:
+#     'Шторм'
+#
+#
+# class Steam:
+#     'Пар'
+#
+#
+# class Dirt:
+#     'Грязь'
+#
+#
+# class Lightning:
+#     'Молния'
+#
+#
+# class Dust:
+#     'Пыль'
+#
+#
+# class Lava:
+#     'Лава'
+#
 
 # Усложненное задание (делать по желанию)
 # Добавить еще элемент в игру.
 # Придумать что будет при сложении существующих элементов с новым.
+
+
+
+
+
+
+
+class Toyota:
+
+    color = 0
+
+    def __init__(self,name):
+        self.name = "Tayota"
+
+    def colort(self):
+        print(self, ' Зелёный')
+
+    def __str__(self):
+        return str(self.name)
+
+    def __repr__(self):
+
+
+my_car = Toyota
+
+print(Toyota.colort)
+
