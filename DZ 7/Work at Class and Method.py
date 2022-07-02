@@ -17,8 +17,8 @@
 # Repr чтобы выводилось правильно название объекта,
 # а точнее было А144324А__324324 а станет если пропишим в return "Это объект такой то"
 
-a = [4,5,34]
-s = 'asd'
+# a = [4,5,34]
+# s = 'asd'
 
 # print(type(a))
 
@@ -40,10 +40,45 @@ s = 'asd'
 
 import pprint
 #Урок 2
-class Person:
-    name = 'Ivan'
-    age = 30
+# class Person:
+#     name = 'Ivan'
+#     age = 30
+#
+# Person.name = 'Misha'
+#
+# print(Person.name)
 
-Person.name = 'Misha'
+ # Урок 4
 
-print(Person.name)
+# class Car:
+#     model  = 'BMW'
+#     engine = 1.5
+#
+#     def drive():
+#         print('Поехали')
+#
+# a = Car
+#
+# print( a.drive())
+
+# Урок 5-6
+
+class Car:
+    speed = 200
+
+
+    def set_value (self,value,age = 0):
+        self.name = value
+        self.age = age
+
+    def __int__(self):
+        print('hello')
+
+    def __str__(self):
+        return f"Это машина с именем  - {self.name}"
+a = Car()
+
+print(a('sss',11))
+
+
+
