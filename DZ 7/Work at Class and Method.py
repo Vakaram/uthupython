@@ -214,7 +214,7 @@ for day in range(1,360):
     print('===================== день {} ================='.format(day))
     menone.action()
     print(menone)
-
+1
 
 
 
