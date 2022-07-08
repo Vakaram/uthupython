@@ -161,16 +161,16 @@ class HomeAnimals:
         self.name = name
 
     def __str__(self):
-        return 'Имя {}, сытость {}'.format(self.name, self.sitost_cat)
+        return 'Имя {}, сытость {} '.format(self.name, self.sitost_cat)
 
 
 class Cat(HomeAnimals):
 
-    def __init__(self,name,house):
-        super().__init__(self,name,house,sitost_cat = 30)
-        # self.name = name
-        # self.house = house
-        # self.sitost_cat = sitost_cat
+    def __init__(self,name,house,sitost_cat=30):
+        # super(HomeAnimals,self).__init__(self,name,house,sitost_cat = 30)
+        self.name = name
+        self.house = house
+        self.sitost_cat = sitost_cat
 
     def __str__(self):
         return super().__str__()
@@ -192,7 +192,7 @@ class Cat(HomeAnimals):
 home = House()
 serge = Husband(name='Сережа', house=home)
 masha = Wife(name='Маша', house=home)
-murka = Cat(name='Мурка', house=home, sitost_cat = 30)
+murka = Cat(name='Мурка', house=home)
 
 for day in range(365):
     cprint('================== День {} =================='.format(day), color='red')
@@ -203,7 +203,6 @@ for day in range(365):
     cprint(masha, color='cyan')
     cprint(home, color='cyan')
     cprint(murka, color='cyan')
-
     if serge.happy <= 10 or serge.hunger < 0:
         print(serge.name , 'умер')
         break
