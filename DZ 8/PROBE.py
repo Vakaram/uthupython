@@ -130,6 +130,14 @@ for day in range(365):
 # Степень сытости не должна падать ниже 0, иначе кот умрет от голода.
 #
 # Если кот дерет обои, то грязи становится больше на 5 пунктов
+    def __init__(self, name, house, hunger=100, happy=100):
+        self.name = name
+        self.house = house
+        self.hunger = hunger
+        self.happy = happy
+
+ def __init__(self, name, house, hunger=100, happy=100):
+        super().__init__(name, house, hunger=100, happy=100)
 
 
 class Cat:
