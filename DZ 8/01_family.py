@@ -45,7 +45,7 @@ from random import randint
 class House:
 
     def __init__(self, food=100, dirt=0, money = 100,food_cat = 30):
-        self.foof_cat = food_cat
+        self.food_cat = food_cat
         self.food = food
         self.dirt = dirt
         self.money = money
@@ -64,6 +64,9 @@ class People:
     def __str__(self):
         return 'Имя {}, сытость {}, счатье {} '.format(self.name, self.hunger, self.happy)
 
+    #попробую тут записать фунцию для всех людей для глажки кота =)
+    def gladit_cota(self):
+        self.happy += 5
 
 class Husband(People):
 
@@ -152,7 +155,7 @@ class Wife(People):
 
 class HomeAnimals:
 
-    def __int__(self,name,house,sitost_cat = 30):
+    def __init__(self,name,house,sitost_cat = 30):
         self.house = house
         self.sitost_cat = sitost_cat
         self.name = name
@@ -163,8 +166,11 @@ class HomeAnimals:
 
 class Cat(HomeAnimals):
 
-    def __init__(self,name,house,sitost_cat = 30):
-        super().__init__()
+    def __init__(self,name,house):
+        super().__init__(self,name,house,sitost_cat = 30)
+        # self.name = name
+        # self.house = house
+        # self.sitost_cat = sitost_cat
 
     def __str__(self):
         return super().__str__()
@@ -186,7 +192,7 @@ class Cat(HomeAnimals):
 home = House()
 serge = Husband(name='Сережа', house=home)
 masha = Wife(name='Маша', house=home)
-murka = Cat(name='Мурка', house=home)
+murka = Cat(name='Мурка', house=home, sitost_cat = 30)
 
 for day in range(365):
     cprint('================== День {} =================='.format(day), color='red')
@@ -196,7 +202,8 @@ for day in range(365):
     cprint(serge, color='cyan')
     cprint(masha, color='cyan')
     cprint(home, color='cyan')
-    cprint(murka,colpr='cyan')
+    cprint(murka, color='cyan')
+
     if serge.happy <= 10 or serge.hunger < 0:
         print(serge.name , 'умер')
         break
