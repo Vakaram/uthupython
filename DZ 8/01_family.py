@@ -51,7 +51,7 @@ class House:
         self.money = money
 
     def __str__(self):
-        return f'Еды в доме {self.food}, грязи в доме {self.dirt}, денег в доме {self.money}'
+        return f'Еды в доме {self.food}, грязи в доме {self.dirt}, денег в доме {self.money}, запас еды коты {self.food_cat}'
 
 class People:
 
@@ -85,10 +85,13 @@ class Husband(People):
             print('Персонаж {} умер'.format(self.name))
         elif self.happy <=10:
             self.wot()
+            self.gladit_cota()
         elif self.hunger <= 30:
             self.eat()
+            self.gladit_cota()
         elif self.house.money <= 600 :
-              self.job()
+            self.job()
+
 
 
 
@@ -119,14 +122,17 @@ class Wife(People):
         self.happy -= 10
         if self.house.dirt >90:
             self.happy -= 10
-
+        if self.house.food_cat <=30:
+            self.buy_food_cat()
         chislo = randint(1,6)
         if  self.hunger <= 30:
             self.eat()
+            self.gladit_cota()
         elif self.happy <= 50 and self.house.money >= 350:
             self.buy_shuba()
-        elif self.house.food <= 0 and self.house.money >= 150 :
+        elif self.house.food <= 60 and self.house.money >= 180 :
             self.buy_food()
+            self.gladit_cota()
         elif self.house.dirt >= 90:
             self.uborka()
         else:
@@ -146,6 +152,11 @@ class Wife(People):
         self.hunger -= 10
         self.house.money -= 60
         self.house.food += 60
+
+    def buy_food_cat(self):
+        self.house.food_cat += 30
+        self.house.money -= 30
+
 
     def buy_shuba(self):
         self.hunger -= 10
@@ -175,18 +186,29 @@ class Cat(HomeAnimals):
     def __str__(self):
         return super().__str__()
 
-
     def act(self):
-        pass
+        chislos = randint(1,6)
+        if self.sitost_cat <= 10:
+            self.eat()
+        elif chislos == 4 or 5:
+            self.drat_oboi()
+        elif chislos == 1 or 2:
+            self.sleep()
+        else:
+            pass
+
 
     def eat(self):
-        pass
+        eat_cat = 10
+        self.house.food_cat -= eat_cat
+        self.sitost_cat += eat_cat * 2
 
     def sleep(self):
-        pass
+        self.sitost_cat -=10
 
     def drat_oboi(self):
-        pass
+        self.sitost_cat -=10
+        self.house.dirt += 5
 
 
 home = House()
@@ -194,7 +216,7 @@ serge = Husband(name='Сережа', house=home)
 masha = Wife(name='Маша', house=home)
 murka = Cat(name='Мурка', house=home)
 
-for day in range(365):
+for day in range(9999):
     cprint('================== День {} =================='.format(day), color='red')
     serge.act()
     masha.act()
@@ -209,6 +231,8 @@ for day in range(365):
     elif masha.happy <= 10 or masha.hunger < 0:
         print(masha.name , 'умерла')
         break
+    elif murka.sitost_cat <=0:
+        print('Кошка умерла, семья живёт дальше.') # Тут бы хорошо сделать что кот удаляется , чтобы кота не могли гладить члены семьи
 
 
 # print( 'Самый нижний принт серега', serge )
