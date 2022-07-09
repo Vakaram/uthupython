@@ -61,7 +61,7 @@ class People:
         self.happy = happy
 
     def __str__(self):
-        return 'Имя {}, голод {}, счатье {} '.format(self.name, self.hunger, self.happy)
+        return 'Имя {}, сытость {}, счатье {} '.format(self.name, self.hunger, self.happy)
 
 
 class Husband(People):
@@ -149,25 +149,54 @@ class Wife(People):
         self.shuba += 1
         self.house.money -=350
 
+class Child(People):
+
+    def __init__(self, name, house, hunger=100, happy=100):
+        super().__init__(name, house, hunger=100, happy=100)
+
+    def __str__(self):
+        return super().__str__()
+
+    def act(self):
+        a = randint(1,2)
+        if a == 1:
+            self.eat()
+        else:
+            self.sleep()
+
+    def eat(self):
+        self.hunger +=10
+        self.house.food -=10
+
+    def sleep(self):
+        self.hunger -=10
+
+
 
 
 home = House()
 serge = Husband(name='Сережа', house=home)
 masha = Wife(name='Маша', house=home)
+stas = Child(name= 'Стас', house = home,happy = 100)
 
+cprint(serge, color='cyan')
 for day in range(365):
     cprint('================== День {} =================='.format(day), color='red')
     serge.act()
     masha.act()
+    stas.act()
     cprint(serge, color='cyan')
     cprint(masha, color='cyan')
     cprint(home, color='cyan')
+    cprint(stas, color='cyan')
+
     if serge.happy <= 10 or serge.hunger < 0:
         print(serge.name , 'умер')
         break
     elif masha.happy <= 10 or masha.hunger < 0:
         print(masha.name , 'умерла')
         break
+
 
 
 # print( 'Самый нижний принт серега', serge )
