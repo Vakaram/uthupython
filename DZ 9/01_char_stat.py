@@ -39,7 +39,7 @@
 # #  - по алфавиту по возрастанию
 # #  - по алфавиту по убыванию
 # # Для этого пригодится шаблон проектирование "Шаблонный метод" см https://goo.gl/Vz4828
-import re
+# import re
 # voina_i_mir ='voina-i-mir.txt'
 # stat ={}
 # with open(voina_i_mir, 'r',encoding='utf-8') as file:
@@ -114,28 +114,44 @@ class ThisFile:
                f'|  буква   |  частота |\n' \
                f'+----------+----------+\n' \
                f'{self.bigrusbukv()}\n' \
+               f'+----------+----------+\n' \
                f'{self.smallrusbukv()}\n' \
                f'{self.countbukvrus()}\n' \
 
     def bigrusbukv(self):
         import re
         self.stat_sortA = {}
+        sobiraem_tut = ''
         for i in sorted(self.stat):
             if re.search(r'[А-Я]',i):
                 self.stat_sortA[i]=self.stat[i]
-            for bukva, count in self.stat_sortA.items():
-                return f'|{bukva:^10}|{count:^10}|'.format(bukva=bukva,count=count)
-
+        for bukva, count in self.stat_sortA.items():
+            sobiraem_tut += f'|{bukva:^10}|{count:^10}|\n'.format(bukva=bukva,count=count)
+        return sobiraem_tut
 
     def smallrusbukv(self):
         import re
         self.stat_sorta = {}
+        zapisivaim_mnogo = ""
         for i in sorted(self.stat):
             if re.search(r'[а-я]',i):
-                self.stat_sorta[i]=self.stat[i]
-            for bukva, count in self.stat_sorta.items():
-                a = f'|{bukva:^10}|{count:^10}|'.format(bukva=bukva,count=count)
-                return a
+                self.stat_sorta[i] = self.stat[i]
+        for bukva, count in self.stat_sorta.items():
+            zapisivaim_mnogo += f'|{bukva:^10}|{count:^10}|\n'.format(bukva=bukva, count=count)
+
+        return zapisivaim_mnogo
+
+    # def smallrusbukv(self):
+    #     import re
+    #     self.stat_sorta = {}
+    #     result = ""
+    #     for i in sorted(self.stat):
+    #         if re.search(r'[а-я]', i):
+    #             self.stat_sorta[i] = self.stat[i]
+    #     for bukva, count in self.stat_sorta.items():
+    #         result += f'|{bukva:^10}|{count:^10}|\n'.format(bukva=bukva, count=count)
+
+        # return result
 
     def countbukvrus(self):
         itogo = 0
@@ -146,13 +162,22 @@ class ThisFile:
         return f'+----------+----------+\n|   итого  |{itogo:^10}|\n'\
                f'+----------+----------+'.format(itogo=itogo)
 
+    def starall(self):
+        self.stat_count()
+        self.bigrusbukv()
+        self.smallrusbukv()
+        self.countbukvrus()
 
 
-proverka_file = ThisFile(name_file='voina-i-mir.txt')
-proverka_file.bigrusbukv()
-proverka_file.smallrusbukv()
-proverka_file.stat_count()
-proverka_file.countbukvrus()
+proverka_file = ThisFile(name_file='voyna-i-mir.txt',encoding= 'cp1251') #НА КОМПЕ CP1251 , ПО УМОЛЧАНИЮ UTF-8
+
+
+
+proverka_file.starall()
+# proverka_file.stat_count()
+# proverka_file.smallrusbukv()
+# proverka_file.bigrusbukv()
+# proverka_file.countbukvrus()
 
 print(proverka_file)
 
