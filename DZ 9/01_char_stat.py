@@ -113,48 +113,49 @@ class ThisFile:
                f'+----------+----------+\n'\
                f'|  буква   |  частота |\n' \
                f'+----------+----------+\n' \
-               f'{self.sortirovkAdef()}\n' \
+               f'{self.bigrusbukv()}\n' \
+               f'{self.smallrusbukv()}\n' \
+               f'{self.countbukvrus()}\n' \
 
-    def sortirovkAdef(self):
+    def bigrusbukv(self):
         import re
         self.stat_sortA = {}
         for i in sorted(self.stat):
             if re.search(r'[А-Я]',i):
                 self.stat_sortA[i]=self.stat[i]
             for bukva, count in self.stat_sortA.items():
-                self.sortirovkA = f'|{bukva:^10}|{count:^10}|'.format(bukva=bukva,count=count)
-                print(self.sortirovkA)
+                return f'|{bukva:^10}|{count:^10}|'.format(bukva=bukva,count=count)
+
+
+    def smallrusbukv(self):
+        import re
+        self.stat_sorta = {}
+        for i in sorted(self.stat):
+            if re.search(r'[а-я]',i):
+                self.stat_sorta[i]=self.stat[i]
+            for bukva, count in self.stat_sorta.items():
+                a = f'|{bukva:^10}|{count:^10}|'.format(bukva=bukva,count=count)
+                return a
+
+    def countbukvrus(self):
+        itogo = 0
+        for i in self.stat_sortA:
+            itogo = itogo + self.stat_sortA[i]
+        for i in self.stat_sorta:
+            itogo = itogo + self.stat_sorta[i]
+        return f'+----------+----------+\n|   итого  |{itogo:^10}|\n'\
+               f'+----------+----------+'.format(itogo=itogo)
+
 
 
 proverka_file = ThisFile(name_file='voina-i-mir.txt')
+proverka_file.bigrusbukv()
+proverka_file.smallrusbukv()
 proverka_file.stat_count()
-proverka_file.sortirovkAdef()
+proverka_file.countbukvrus()
+
 print(proverka_file)
 
-# #принтуем словарь в красивом виде А-Я
-
-# #сортируем словарь по а-я
-# print('+----------+----------+')
-# stat_sorta = {}
-# for i in sorted(stat):
-#     if re.search(r'[а-я]',i):
-#         stat_sorta[i]=stat[i]
-#
-# #принтуем словарь в красивом виде А-Я
-# for bukva,count in stat_sorta.items():
-#     print(f'|{bukva:^10}|{count:^10}|'.format(bukva=bukva,count=count))
-#
-# #Считаем итого символов
-# itogo = 0
-# for i in stat_sortA:
-#     itogo = itogo + stat_sortA[i]
-# for i in stat_sorta:
-#     itogo = itogo + stat_sorta[i]
-#
-# print('+----------+----------+')
-# print('|   итого  |{itogo:^10}|'.format(itogo = itogo))
-# print('+----------+----------+')
-#
 
 
 
