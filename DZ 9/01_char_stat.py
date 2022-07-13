@@ -138,7 +138,6 @@ class ThisFile:
                 self.stat_sorta[i] = self.stat[i]
         for bukva, count in self.stat_sorta.items():
             zapisivaim_mnogo += f'|{bukva:^10}|{count:^10}|\n'.format(bukva=bukva, count=count)
-
         return zapisivaim_mnogo
 
     # def smallrusbukv(self):
