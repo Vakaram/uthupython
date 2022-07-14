@@ -44,6 +44,10 @@ class Logi:
                             count = count + 1
                         elif log_minut != vremenaya:
                             print(log_minut,']', count,'раз(а)')
+                            raza = ' раз(а)'
+                            scobka = '] '
+                            logfoleus = f'{log_minut}{scobka}{count}{raza}\n'
+                            self.zapis_logi += str(logfoleus)
                             count = 1
                             log_minut = line[:17]
 
@@ -59,9 +63,13 @@ class Logi:
                             count = count + 1
                         elif log_minut != vremenaya:
                             print(log_minut,']', count,'раз(а)')
+                            raza = ' раз(а)'
+                            scobka = '] '
+                            logfoleus = f'{log_minut}{scobka}{count}{raza}\n'
+                            self.zapis_logi += str(logfoleus)
                             count = 1
                             log_minut = line[:14]
-
+    zapis_logi = ''
     def day(self):  # считает статистику
         count = 1
         with open(self.name_file, 'r', encoding=self.encoding) as file:
@@ -74,13 +82,25 @@ class Logi:
                             count = count + 1
                         elif log_minut != vremenaya:
                             print(log_minut,']', count,'раз(а)')
-                            count = 1
                             log_minut = line[:11]
+                            #ждя записи в файд
+                            raza = ' раз(а)'
+                            scobka = '] '
+                            logfoleus = f'{log_minut}{scobka}{count}{raza}\n'
+                            self.zapis_logi +=str(logfoleus)
+                            count = 1
 
     def __str__(self):
         return f'Вы проверяете документ {self.name_file}\n' \
                f'в кодирове {self.encoding} по умолчанию,если ошибка поменяйте кодировку\n' \
 
+    def addfile(self):
+        name = self.name_file+'new'
+        with open(name,'w') as newfile:
+            newfile.write(self.zapis_logi)
+        print('у нас получилось записать файл')
+
 events = Logi(name_file= 'events.txt')
-events.day()
+events.hour()
+events.addfile()
 print(events)
