@@ -68,7 +68,7 @@ class FasovkaFilov:
         import shutil
         self.papka_open = os.listdir(self.folder)
         new_papka = 'C://sort_papka'
-        os.mkdir(new_papka)  # создаёт папку
+        # os.mkdir(new_papka)  # создаёт папку
         print('мы создали папку ', new_papka)
         for file in self.papka_open:
             put_k_file = self.folder+'\\'+file #путь к файлу с файлом
@@ -78,6 +78,7 @@ class FasovkaFilov:
             # print(self.folder+'\\'+file)
             shutil.copyfile(put_k_file, new_papka) #копирует файл в раннее созданую папку
             #тут сейчас думаю как запускать код от имени администратора?
+            #читать вот тут https://stackoverflow.com/questions/7518067/python-ioerror-errno-13-permission-denied-when-im-copying-file
 
     def remainder(self):# остаток файлов ( 120 из 453) и принтовать как файл обработается
         pass
